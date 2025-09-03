@@ -31,13 +31,21 @@ st.markdown("""
         color: #1F618D;
     }
 
-    /* Final Answer highlight */
+    /* Final Answer highlight: black background */
     .final-answer {
-        background-color: #F4F6F6;
-        border-left: 5px solid #2E86C1;
+        background-color: #000000;  /* Black background */
+        color: #FDFEFE;             /* White text */
+        border-left: 5px solid #F7DC6F;
         padding: 1rem;
         border-radius: 0.5rem;
         font-size: 1.1rem;
+        white-space: pre-wrap;      /* preserves newlines */
+    }
+
+    /* Columns text styling */
+    .analysis-text {
+        white-space: pre-wrap;
+        font-size: 1rem;
     }
 </style>
 """, unsafe_allow_html=True)
@@ -89,7 +97,7 @@ if submit and user_input:
             ).json()
 
             # -------------------------------
-            # Display Results
+            # Display Final Answer
             # -------------------------------
             st.markdown("### 📌 Final Answer")
             st.markdown(
@@ -97,19 +105,31 @@ if submit and user_input:
                 unsafe_allow_html=True
             )
 
-            # 2-column layout for analysis
+            # -------------------------------
+            # Two-column layout for analysis
+            # -------------------------------
             col_g, col_b = st.columns(2)
 
             with col_g:
                 with st.expander("🔍 Google Analysis"):
-                    st.write(analysis_resp.get("google_analysis", "N/A"))
+                    st.markdown(
+                        f"<div class='analysis-text'>{analysis_resp.get('google_analysis', 'N/A')}</div>",
+                        unsafe_allow_html=True
+                    )
 
                 with st.expander("🟦 Bing Analysis"):
-                    st.write(analysis_resp.get("bing_analysis", "N/A"))
+                    st.markdown(
+                        f"<div class='analysis-text'>{analysis_resp.get('bing_analysis', 'N/A')}</div>",
+                        unsafe_allow_html=True
+                    )
 
             with col_b:
                 with st.expander("👥 Reddit Analysis"):
-                    st.write(analysis_resp.get("reddit_analysis", "N/A"))
+                    st.markdown(
+                        f"<div class='analysis-text'>{analysis_resp.get('reddit_analysis', 'N/A')}</div>",
+                        unsafe_allow_html=True
+                    )
 
         except Exception as e:
             st.error(f"❌ Error: {e}")
+
