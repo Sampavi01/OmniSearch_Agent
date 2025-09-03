@@ -90,17 +90,20 @@ python main.py
 ```bash
 uvicorn mcp_server:app --reload
 ```
-### ⚡ MCP FastAPI Server Endpoints
+### ⚡ MCP FastAPI Server
 
-| Endpoint        | Method | Description                     |
-|-----------------|--------|---------------------------------|
-| `/search`       | POST   | Search Google, Bing & Reddit    |
-| `/reddit_posts` | POST   | Retrieve Reddit posts           |
-| `/analyze`      | POST   | Analyze & synthesize results    |
+The MCP (Model Context Protocol) server manages **context-aware multi-source processing**. It exposes endpoints to handle the full AI workflow:
+
+- **/search** `POST` → Searches **Google, Bing, and Reddit** for a user query.
+- **/reddit_posts** `POST` → Retrieves detailed Reddit posts for selected URLs.
+- **/analyze** `POST` → Analyzes all source results with LLM and synthesizes a **final comprehensive answer**.
+
+> 💡 MCP ensures the **user question context is preserved across all steps**, producing consistent and coherent answers.
 
 ## 🛡 License
 
 MIT License
+
 
 
 
