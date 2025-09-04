@@ -19,6 +19,10 @@ It gathers information from **Google, Bing, and Reddit**, analyzes it using AI, 
 - 🛠 **BrightData Integration:** Efficient SERP & Reddit scraping  
 
 ---
+
+### 🌐 Streamlit Demo (app.py)  
+
+![Streamlit Demo](ezgif.com-speed%20(9).gif)
 ## 💻 Dependencies
 
 - Python 3.10+
@@ -84,6 +88,10 @@ python main.py
 - Type a question 📝
 - Receive multi-source analysis and final answer
 - Type `exit` to quit
+
+### 💻 CLI Demo (main.py)  
+
+![CLI Demo](ezgif.com-speed%20(8).gif)
 
 **⚡ MCP FastAPI Server**
 
